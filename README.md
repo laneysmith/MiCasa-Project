@@ -1,6 +1,6 @@
 # Order of Operations
 
-* Fork and Clone this repo
+* Fork this repo and clone the your local repository.
 * npm install
 * create .env file
 * add the organization repo as a separate remote repository
