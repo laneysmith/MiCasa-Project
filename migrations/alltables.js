@@ -43,7 +43,7 @@ exports.up = function(knex, Promise) {
   }).then(function(){
     return knex.schema.createTable('class_owner', function(table) {
       table.integer('owner_id').references('id').inTable('owner').onDelete('cascade');
-      table.integer('class_id').references('id').inTable('business').onDelete('cascade');
+      table.integer('class_id').references('id').inTable('class').onDelete('cascade');
       table.boolean('did_graduate');
     });
   }).then(function(){
