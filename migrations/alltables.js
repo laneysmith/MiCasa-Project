@@ -12,6 +12,11 @@ exports.up = function(knex, Promise) {
       table.string('semester');
     });
   }).then(function() {
+    return knex.schema.createTable('industry', function(table) {
+      table.increments();
+      table.string('name');
+    });
+  }).then(function() {
     return knex.schema.createTable('owner', function(table) {
       table.increments();
       table.string('first_name');
@@ -29,6 +34,7 @@ exports.up = function(knex, Promise) {
       table.integer('zip');
       table.string('email');
       table.string('phone');
+      table.integer('industry_id').references('id').inTable('industry').onDelete('cascade');
       table.date('date_opened');
       table.date('date_closed');
       table.boolean('good_standing'); // Secretary of State
@@ -65,6 +71,8 @@ exports.down = function(knex, Promise) {
     return knex.schema.dropTableIfExists('business');
   }).then(function(){
     return knex.schema.dropTableIfExists('owner');
+  }).then(function(){
+    return knex.schema.dropTableIfExists('industry');
   }).then(function(){
     return knex.schema.dropTableIfExists('class');
   }).then(function(){
