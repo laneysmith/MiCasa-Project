@@ -1,0 +1,5 @@
+- What information is most important to display initially?
+- How do you want the search to be conducted?
+- Display additional information as drop down, modal, or separate page.
+  - basic results as table, if want to expand, expand. Otherwise basic link to owners page.
+- Build mockup or two of the dashboard page.
