@@ -1,5 +1,26 @@
-- What information is most important to display initially?
-- How do you want the search to be conducted?
 - Display additional information as drop down, modal, or separate page.
   - basic results as table, if want to expand, expand. Otherwise basic link to owners page.
-- Build mockup or two of the dashboard page.
+- a-z on owners name sort (last name)
+- business email and phone only
+- grasshopper?
+- Owner | business | rest of info
+- Class information attached to owner not business
+- Occasionally two students to business relationship
+- Colorado businesses only
+- Doors Opened/Doors Closed
+- Registered With Secretary of State
+- Owner Detail At the top (So owner can be added without a business)[Entrepreneur]
+- Add pop-down option to add business to Owner
+- Search by city (zip)
+- Add edit features to each individual owner and business
+- Male female checkbox in owner field
+- Link to owner from business page
+- Administrative duties to sign up other users (cannot register)
+- 3 (read only, edit capability, add and remove users)
+- If they have finished any of the first three classes then owner is eligible for Business Breakthrough
+- Hand full of workshops which lead into qualification for first three classes
+- Filters by city, industry drop down
+- Search owner that displays more detailed owner information with similar search functionality to business
+- Anyone can call Mi Casa for consulting. Those people are then registered as potential clients. Add consulting field to class drop down.
+- Considering a business? Listening to your Business
+- start tracking hours (15 hrs.)
