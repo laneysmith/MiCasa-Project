@@ -1,7 +1,7 @@
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('account', function(table) {
     table.increments();
-    table.string('name');
+    table.string('username');
     table.string('password');
     table.boolean('is_admin');
   }).then(function() {
