@@ -1,0 +1,10 @@
+.btn-primary {
+  background-color: hsl(40, 91%, 50%);
+  border-color: hsl(40, 91%, 40%);
+  text-shadow: 1px 1px hsl(40, 91%, 40%);
+}
+.btn-primary:hover {
+  background-color: hsl(40, 96%, 70%);
+  border-color: hsl(40, 91%, 50%);
+  text-shadow: 1px 1px hsl(40, 91%, 40%);
+}
