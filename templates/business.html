@@ -66,7 +66,7 @@
     </thead>
     <tbody>
       <tr ng-repeat="result in resultArray | filter:search">
-        <td><a href="">{{result.name}}</a><br>
+        <td><a href="/{{result.id}}">{{result.name}}</a><br>
           <span class="text-muted">{{result.type}}<span>
         </td>
         <td><a href="">{{result.first_name}} {{result.last_name}}</a></td>

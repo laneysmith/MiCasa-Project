@@ -8,3 +8,7 @@
   border-color: hsl(40, 91%, 50%);
   text-shadow: 1px 1px hsl(40, 91%, 40%);
 }
+
+.businessByIdTemplate {
+  margin-top:10vh;
+}
