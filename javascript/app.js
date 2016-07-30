@@ -8,6 +8,11 @@ angular.module('myApp', ['ui.router'])
       controller: "businessController",
       templateUrl: "templates/business.html"
     })
+    .state('businessById', {
+      url: '/:id',
+      controller: "businessByIdController",
+      templateUrl: "templates/business-by-id.html"
+    })
   $locationProvider.html5Mode(true);
 
 
