@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-xs-6 col-sm-4">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
+          <input type="text" class="form-control" placeholder="Search" ng-model="search">
         </div>
       </div>
       <div class="col-sm-6 col-sm-offset-6">
@@ -65,17 +65,16 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td><a href="">Cool Company</a><br>
-          <span class="text-muted">Agriculture<span>
+      <tr ng-repeat="result in resultArray | filter:search">
+        <td><a href="">{{result.name}}</a><br>
+          <span class="text-muted">{{result.type}}<span>
         </td>
-        <td><a href="">Some Dude</a></td>
-        <td>(123) 456-7890</td>
-        <td>inquiries@coolco.com</td>
-        <td>123 Some St.,<br> Denver, CO 80214</td>
+        <td><a href="">{{result.first_name}} {{result.last_name}}</a></td>
+        <td>{{result.phone}}</td>
+        <td>{{result.email}}</td>
+        <td>{{result.address1}},<br>{{result.city}}, {{result.state}} {{result.zip}}</td>
       </tr>
-      <tr>
-        <td><a href="">Another Business!</a><br>
+        <!-- <td><a href="">Another Business!</a><br>
           <span class="text-muted">Information Technology<span>
         </td>
         <td><a href="">A. Lady</td>
@@ -127,6 +126,6 @@
         <td>(123) 123-1234</td>
         <td>me@asdadsd.net</td>
         <td>8902 Downtown St.,<br> Denver, CO 82212</td>
-      </tr>
+      </tr> -->
     </tbody>
     </table>
