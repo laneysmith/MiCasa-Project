@@ -48,7 +48,60 @@
       </div>
     </div>
 
-    <a class="btn btn-primary" href="#" role="button"><i class="fa fa-pencil"></i>&nbsp; Edit</a>
+    <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">Business Edit</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="businessType">Business Type</label>
+            <input id="businessType" type="text" value="{{business.type}}">
+          </div>
+          <div class="form-group">
+            <label for="dateOpened">Date Opened</label>
+            <input id="dateOpened" type="text" value="{{business.date_opened}}">
+          </div>
+          <div class="form-group">
+            <label for="dateClosed">Date Closed</label>
+            <input id="dateClosed" type="text" value="{{business.date_closed}}">
+          </div>
+          <fieldset class="form-group">
+            <legend>Is In Good Standing</legend>
+            <div class="radio">
+              <label>
+                <input type="radio" id="optionsRadios1" checked>
+                In Good Standing
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" id="optionsRadios2">
+                Not In Good Standing
+              </label>
+            </div>
+          </fieldset>
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea id="exampleTextarea" rows="3">{{business.description}}</textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <a class="btn btn-primary" href="#" role="button" data-toggle="modal" data-target="#myModal"><i class="fa fa-pencil"></i>&nbsp; Edit</a>
     <a class="btn btn-primary" href="/" role="button"><i class="fa fa-home"></i>&nbsp; Back</a>
 
   </div>
