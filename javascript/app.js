@@ -9,9 +9,19 @@ angular.module('myApp', ['ui.router'])
       templateUrl: "templates/business.html"
     })
     .state('businessById', {
-      url: '/:id',
+      url: '/businesses/:id',
       controller: "businessByIdController",
-      templateUrl: "templates/business-by-id.html"
+      templateUrl: "templates/business-detail.html"
+    })
+    .state('entrepreneurs', {
+      url: '/entrepreneurs',
+      controller: "entrepreneursController",
+      templateUrl: "templates/entrepreneurs.html"
+    })
+    .state('entrepreneursById', {
+      url: '/entrepreneurs/:id',
+      controller: "entrepreneursByIdController",
+      templateUrl: "templates/entrepreneur-detail.html"
     })
   $locationProvider.html5Mode(true);
 
