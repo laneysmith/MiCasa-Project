@@ -1,4 +1,4 @@
-angular.module('myApp', ['ui.router'])
+angular.module('myApp', ['ui.router', 'angularUtils.directives.dirPagination'])
 .config(function($stateProvider, $urlRouterProvider, $locationProvider){
   $urlRouterProvider.otherwise("/");
 

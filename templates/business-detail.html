@@ -24,7 +24,7 @@
         <p><b>Industry</b>: {{business.type}}</p>
         <p><b>Date Opened</b>: {{business.date_opened}}</p>
         <p><b>Date Closed</b>: {{business.date_closed}}</p>
-        <p><b>Good Standing?</b>: {{business.good_standing}}</p>
+        <p><b>Good Standing?</b>: <span ng-show="business.good_standing">Yes</span><span ng-hide="business.good_standing">No</span></p>
         <p><b>Description</b>: {{business.description}}</p>
       </div>
     </div>
@@ -41,10 +41,10 @@
 
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Owner(s) {{business.first_name}} {{business.last_name}}</h3>
+        <h3 class="panel-title">Owner(s)</h3>
       </div>
       <div class="panel-body">
-
+        {{business.first_name}} {{business.last_name}}
       </div>
     </div>
 

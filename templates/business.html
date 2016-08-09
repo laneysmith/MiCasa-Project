@@ -2,62 +2,26 @@
   <div class="col-xs-12 col-md-10 col-md-offset-1">
     <h3>Search Business Database</h3>
     <div class="row">
-      <div class="col-xs-6 col-sm-4">
+      <div class="col-sm-4">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search" ng-model="search">
         </div>
       </div>
-        <!-- <ul class="nav nav-pills navbar-right">
-          <li class="dropdown ">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="true">
-              City <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu ">
-              <li><a href="#">All</a></li>
-              <li class="divider"></li>
-              <li><a href="#">Accounting</a></li>
-              <li><a href="#">Advertising</a></li>
-              <li><a href="#">Agriculture</a></li>
-              <li><a href="#">Communications</a></li>
-              <li><a href="#">Information Technology</a></li>
-              <li><a href="#">Other</a></li>
-            </ul>
-          </li>
-        </ul>
-
-        <ul class="nav nav-pills navbar-right">
-          <li class="dropdown ">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="true">
-              Industry <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu ">
-              <li><a href="#">All</a></li>
-              <li class="divider"></li>
-              <li><a href="#">Accounting</a></li>
-              <li><a href="#">Advertising</a></li>
-              <li><a href="#">Agriculture</a></li>
-              <li><a href="#">Communications</a></li>
-              <li><a href="#">Information Technology</a></li>
-              <li><a href="#">Other</a></li>
-            </ul>
-          </li>
-        </ul> -->
         <div class="col-sm-2 col-sm-offset-4">
           <div class="form-group">
-            <select name="state" class="form-control" id="state">
-              <option selected disabled>Industry</option>
-              <option ng-repeat="industry in industries | orderBy:'name'">{{industry.name}}</option>
+            <select ng-model="industryFilter" class="form-control">
+              <option selected value="">All Industries</option>
+              <option disabled>-----</option>
+              <option ng-repeat="industry in industries | orderBy:'type'" value="industry.type">{{industry.type}}</option>
             </select>
           </div>
       </div>
       <div class="col-sm-2">
         <div class="form-group">
-          <select name="state" class="form-control" id="state">
-            <option selected disabled>City</option>
-            <option>All</option>
-            <option>Denver</option>
-            <option>Lakewood</option>
-            <option>Aurora</option>
+          <select ng-model="cityFilter" class="form-control">
+            <option selected value="">All Cities</option>
+            <option disabled>-----</option>
+            <option ng-repeat="city in cities | orderBy:'city'" value="city.city">{{city.city}}</option>
           </select>
         </div>
     </div>
@@ -66,75 +30,32 @@
     <table class="table table-striped table-hover ">
     <thead>
       <tr>
-        <th>Business &nbsp;<i class="fa fa-sort-alpha-asc" aria-hidden="false"></i></th>
-        <th>Owner &nbsp;<i class="fa fa-sort-alpha-asc" aria-hidden="false"></i></th>
+        <th>
+          <a href="" ng-click="toggleBusinessOrder('businessName')">Business</a>
+          <i class="fa fa-sort-alpha-asc" ng-show="businessOrder==='name'" aria-hidden="false"></i>
+          <i class="fa fa-sort-alpha-desc" ng-show="businessOrder==='-name'" aria-hidden="false"></i>
+        </th>
+        <th>
+          <a href="" ng-click="toggleBusinessOrder('ownerName')">Owner</a>
+          <i class="fa fa-sort-alpha-asc" ng-show="businessOrder==='last_name'" aria-hidden="false"></i>
+          <i class="fa fa-sort-alpha-desc" ng-show="businessOrder==='-last_name'" aria-hidden="false"></i>
+        </th>
         <th>Phone</th>
         <th>Email</th>
         <th>Address</th>
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="result in resultArray | filter:search">
-        <td><a href="/{{result.id}}">{{result.name}}</a><br>
+      <tr dir-paginate="result in resultArray | itemsPerPage:4 | filter:search | orderBy:businessOrder">
+        <td><a href="/businesses/{{result.business_id}}">{{result.name}}</a><br>
           <span class="text-muted">{{result.type}}<span>
         </td>
-        <td><a href="">{{result.first_name}} {{result.last_name}}</a></td>
+        <td><a href="">{{result.last_name}}, {{result.first_name}}</a></td>
         <td>{{result.phone}}</td>
         <td>{{result.email}}</td>
         <td>{{result.address1}},<br>{{result.city}}, {{result.state}} {{result.zip}}</td>
       </tr>
-        <!-- <td><a href="">Another Business!</a><br>
-          <span class="text-muted">Information Technology<span>
-        </td>
-        <td><a href="">A. Lady</td>
-        <td>(808) 123-4567</td>
-        <td>me@anotherbiz.net</td>
-        <td>8902 Downtown St.,<br> Englewood, CO 82212</td>
-      </tr>
-      <tr>
-        <td><a href="">Cool Company</a><br>
-          <span class="text-muted">Agriculture<span>
-        </td>
-        <td><a href="">Some Dude</a></td>
-        <td>(123) 456-7890</td>
-        <td>inquiries@coolco.com</td>
-        <td>123 Some St.,<br> Denver, CO 80214</td>
-      </tr>
-      <tr>
-        <td><a href="">More Businesses</a><br>
-          <span class="text-muted">Construction<span>
-        </td>
-        <td><a href="">Someone Else</a></td>
-        <td>(123) 123-1234</td>
-        <td>me@asdadsd.net</td>
-        <td>8902 Downtown St.,<br> Denver, CO 82212</td>
-      </tr>
-      <tr>
-        <td><a href="">Another Business!</a><br>
-          <span class="text-muted">Retail<span>
-        </td>
-        <td><a href="">A. Lady</td>
-        <td>(808) 123-4567</td>
-        <td>me@anotherbiz.net</td>
-        <td>8902 Downtown St.,<br> Englewood, CO 82212</td>
-      </tr>
-      <tr>
-        <td><a href="">Cool Company</a><br>
-          <span class="text-muted">Agriculture<span>
-        </td>
-        <td><a href="">Some Dude</a></td>
-        <td>(123) 456-7890</td>
-        <td>inquiries@coolco.com</td>
-        <td>123 Some St.,<br> Denver, CO 80214</td>
-      </tr>
-      <tr>
-        <td><a href="">More Businesses</a><br>
-          <span class="text-muted">Accounting<span>
-        </td>
-        <td><a href="">Someone Else</a></td>
-        <td>(123) 123-1234</td>
-        <td>me@asdadsd.net</td>
-        <td>8902 Downtown St.,<br> Denver, CO 82212</td>
-      </tr> -->
     </tbody>
     </table>
+
+    <center><dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="./javascript/directives/dirPagination.tpl.html"></dir-pagination-controls></center>
