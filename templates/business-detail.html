@@ -1,109 +1,147 @@
 <div class="container businessByIdTemplate">
-<div class="row">
-  <div class="col-xs-10 col-xs-offset-1 col-lg-6 col-lg-offset-3">
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1 col-lg-6 col-lg-offset-3">
 
-    <h3>{{business.name}}</h3>
+      <h3>{{business.name}}</h3>
 
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Contact</h3>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Contact</h3>
+        </div>
+        <div class="panel-body">
+          <p><b>Phone</b>: {{business.phone}}</p>
+          <p><b>Email</b>: {{business.email}}</p>
+          <p><b>Website</b>: <a href="" target="_blank">{{business.website}}</a></p>
+          <p><b>Address</b>: {{business.address1}}, {{business.city}}, {{business.state}} {{business.zip}}</p>
+        </div>
       </div>
-      <div class="panel-body">
-        <p><b>Phone</b>: {{business.phone}}</p>
-        <p><b>Email</b>: {{business.email}}</p>
-        <p><b>Website</b>: <a href="" target="_blank">{{business.website}}</a></p>
-        <p><b>Address</b>: {{business.address1}}, {{business.city}}, {{business.state}} {{business.zip}}</p>
-      </div>
-    </div>
 
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Details</h3>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Details</h3>
+        </div>
+        <div class="panel-body">
+          <p><b>Industry</b>: {{business.type}}</p>
+          <p><b>Date Opened</b>: {{business.date_opened}}</p>
+          <p><b>Date Closed</b>: {{business.date_closed}}</p>
+          <p><b>Good Standing?</b>: <span ng-show="business.good_standing">Yes</span><span ng-hide="business.good_standing">No</span></p>
+          <p><b>Description</b>: {{business.description}}</p>
+        </div>
       </div>
-      <div class="panel-body">
-        <p><b>Industry</b>: {{business.type}}</p>
-        <p><b>Date Opened</b>: {{business.date_opened}}</p>
-        <p><b>Date Closed</b>: {{business.date_closed}}</p>
-        <p><b>Good Standing?</b>: <span ng-show="business.good_standing">Yes</span><span ng-hide="business.good_standing">No</span></p>
-        <p><b>Description</b>: {{business.description}}</p>
-      </div>
-    </div>
 
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Internal Notes</h3>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Internal Notes</h3>
+        </div>
+        <div class="panel-body">
+          <p ng-repeat="comment in commentArray"><b>{{comment.username}}</b>: {{comment.notes}}</p>
+          <a class="btn btn-default btn-sm" href="#" role="button"><i class="fa fa-plus-circle"></i>&nbsp; Add Note</a>
+        </div>
       </div>
-      <div class="panel-body">
-        <p ng-repeat="comment in commentArray"><b>{{comment.username}}</b>: {{comment.notes}}</p>
-        <a class="btn btn-default btn-sm" href="#" role="button"><i class="fa fa-plus-circle"></i>&nbsp; Add Note</a>
-      </div>
-    </div>
 
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Owner(s)</h3>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Owner(s)</h3>
+        </div>
+        <div class="panel-body">
+          {{business.first_name}} {{business.last_name}}
+        </div>
       </div>
-      <div class="panel-body">
-        {{business.first_name}} {{business.last_name}}
-      </div>
-    </div>
 
-    <!-- Modal -->
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <h4 class="modal-title" id="myModalLabel">Business Edit</h4>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <label for="businessType">Business Type</label>
-            <input id="businessType" type="text" value="{{business.type}}">
-          </div>
-          <div class="form-group">
-            <label for="dateOpened">Date Opened</label>
-            <input id="dateOpened" type="text" value="{{business.date_opened}}">
-          </div>
-          <div class="form-group">
-            <label for="dateClosed">Date Closed</label>
-            <input id="dateClosed" type="text" value="{{business.date_closed}}">
-          </div>
-          <fieldset class="form-group">
-            <legend>Is In Good Standing</legend>
-            <div class="radio">
-              <label>
-                <input type="radio" id="optionsRadios1" checked>
-                In Good Standing
-              </label>
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <h4 class="modal-title" id="myModalLabel">Business Edit</h4>
             </div>
-            <div class="radio">
-              <label>
-                <input type="radio" id="optionsRadios2">
-                Not In Good Standing
-              </label>
+            <div class="modal-body">
+
+              <form ng-submit="editBusiness()">
+                <div class="form-group">
+                  <label for="businessName">Business Name</label>
+                  <input id="businessName" name="name" type="text" value="{{business.name}}">
+                </div>
+                <div class="form-group">
+                  <label for="businessPhone">Phone</label>
+                  <input id="businessPhone" name="phone" type="text" value="{{business.phone}}">
+                </div>
+                <div class="form-group">
+                  <label for="businessEmail">Email</label>
+                  <input id="businessEmail" name="email" type="text" value="{{business.email}}">
+                </div>
+                <div class="form-group">
+                  <label for="businessWebsite">Website</label>
+                  <input id="businessWebsite" name="website" type="text" value="{{business.website}}">
+                </div>
+                <div class="form-group">
+                  <label for="businessAddress1">Address</label>
+                  <input id="businessAddress1" name="address1" type="text" value="{{business.address1}}">
+                </div>
+                <div class="form-group">
+                  <label for="businessCity">City</label>
+                  <input id="businessCity" name="city" type="text" value="{{business.city}}">
+                </div>
+                <div class="form-group">
+                  <label for="businessState">State</label>
+                  <input id="businessState" name="state" type="text" value="{{business.state}}">
+                </div>
+                <div class="form-group">
+                  <label for="businessZip">Zip</label>
+                  <input id="businessZip" name="zip" type="text" value="{{business.zip}}">
+                </div>
+
+                <div class="form-group">
+                  <select ng-model="business.type" name="type" value="business.type" class="form-control">
+                    <option selected value="business.type">{{business.type}}</option>
+                    <option disabled="">-----</option>
+                    <option ng-repeat="industry in industries | orderBy:'type'" value="industry.type">{{industry.type}}</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="dateOpened">Date Opened</label>
+                  <input id="dateOpened" name="date_opened" type="text" value="{{business.date_opened}}">
+                </div>
+                <div class="form-group">
+                  <label for="dateClosed">Date Closed</label>
+                  <input id="dateClosed" name="date_closed" type="text" value="{{business.date_closed}}">
+                </div>
+
+                <fieldset class="form-group">
+                  <legend>Is In Good Standing</legend>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="good_standing" id="goodStanding" value="true" ng-checked="business.good_standing===true"> In Good Standing
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="good_standing" id="goodStanding" value="false" ng-checked="business.good_standing===false"> Not In Good Standing
+                    </label>
+                  </div>
+                </fieldset>
+
+                <div class="form-group">
+                  <label for="description">Description</label>
+                  <textarea id="exampleTextarea" rows="3">{{business.description}}</textarea>
+                </div>
+              </form>
             </div>
-          </fieldset>
-          <div class="form-group">
-            <label for="description">Description</label>
-            <textarea id="exampleTextarea" rows="3">{{business.description}}</textarea>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Save changes</button>
+            </div>
           </div>
-        </form>
+        </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+
+      <a class="btn btn-primary" href="#" role="button" data-toggle="modal" data-target="#myModal"><i class="fa fa-pencil"></i>&nbsp; Edit</a>
+      <a class="btn btn-primary" href="/" role="button"><i class="fa fa-home"></i>&nbsp; Back</a>
+
     </div>
   </div>
-</div>
-
-    <a class="btn btn-primary" href="#" role="button" data-toggle="modal" data-target="#myModal"><i class="fa fa-pencil"></i>&nbsp; Edit</a>
-    <a class="btn btn-primary" href="/" role="button"><i class="fa fa-home"></i>&nbsp; Back</a>
-
-  </div>
-</div>
 </div>
