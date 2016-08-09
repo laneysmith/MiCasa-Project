@@ -46,7 +46,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr dir-paginate="result in resultArray | itemsPerPage:4 | filter:search | orderBy:businessOrder">
+      <tr dir-paginate="result in resultArray | filter:search | orderBy:businessOrder | itemsPerPage:4">
         <td><a ui-sref="businessById({id:result.business_id})">{{result.name}}</a><br>
           <span class="text-muted">{{result.type}}<span>
         </td>

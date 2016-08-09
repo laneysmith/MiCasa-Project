@@ -63,19 +63,19 @@
               <form ng-submit="editBusiness()">
                 <div class="form-group">
                   <label for="businessName">Business Name</label>
-                  <input id="businessName" type="text" value="{{business.name}}">
+                  <input id="businessName" type="text" ng-model="business.name">
                 </div>
                 <div class="form-group">
                   <label for="businessPhone">Phone</label>
-                  <input id="businessPhone" type="text" value="{{business.phone}}">
+                  <input id="businessPhone" type="text" ng-model="business.phone">
                 </div>
                 <div class="form-group">
                   <label for="businessEmail">Email</label>
-                  <input id="businessEmail" type="text" value="{{business.email}}">
+                  <input id="businessEmail" type="text" ng-model="business.email">
                 </div>
                 <div class="form-group">
                   <label for="businessWebsite">Website</label>
-                  <input id="businessWebsite" type="text" value="{{business.website}}">
+                  <input id="businessWebsite" type="text" ng-model="business.website">
                 </div>
                 <div class="form-group">
                   <label for="businessAddress1">Address</label>
@@ -83,57 +83,56 @@
                 </div>
                 <div class="form-group">
                   <label for="businessCity">City</label>
-                  <input id="businessCity" name="editBusinessForm.city" type="text" value="{{business.city}}">
+                  <input id="businessCity" name="editBusinessForm.city" type="text" ng-model="business.city">
                 </div>
                 <div class="form-group">
                   <label for="businessState">State</label>
-                  <input id="businessState" name="editBusinessForm.state" type="text" value="{{business.state}}">
+                  <input id="businessState" name="editBusinessForm.state" type="text" ng-model="business.state">
                 </div>
                 <div class="form-group">
                   <label for="businessZip">Zip</label>
-                  <input id="businessZip" type="text" value="{{business.zip}}">
+                  <input id="businessZip" type="text" ng-model="business.zip">
                 </div>
 
                 <div class="form-group">
                   <select class="form-control">
                     <option selected value="business.type">{{business.type}}</option>
                     <option disabled="">-----</option>
-                    <option ng-repeat="industry in industries | orderBy:'type'" value="industry.type">{{industry.type}}</option>
+                    <option ng-repeat="industry in industries | orderBy:'type'" ng-model="industry.type">{{industry.type}}</option>
                   </select>
                 </div>
 
                 <div class="form-group">
                   <label for="dateOpened">Date Opened</label>
-                  <input id="dateOpened" type="text" value="{{business.date_opened}}">
+                  <input id="dateOpened" type="text" ng-model="business.date_opened">
                 </div>
                 <div class="form-group">
                   <label for="dateClosed">Date Closed</label>
-                  <input id="dateClosed" type="text" value="{{business.date_closed}}">
+                  <input id="dateClosed" type="text" ng-model="business.date_closed">
                 </div>
 
                 <fieldset class="form-group">
                   <legend>Is In Good Standing</legend>
                   <div class="radio">
                     <label>
-                      <input type="radio" id="goodStanding" value="true" ng-checked="business.good_standing===true"> In Good Standing
+                      <input type="radio" ng-model="business.good_standing" ng-value="true" ng-checked="business.good_standing === true"  > In Good Standing
                     </label>
                   </div>
                   <div class="radio">
                     <label>
-                      <input type="radio" id="goodStanding" value="false" ng-checked="business.good_standing===false"> Not In Good Standing
+                      <input type="radio" ng-model="business.good_standing" ng-value="false" ng-checked="business.good_standing === false"  > Not In Good Standing
                     </label>
                   </div>
                 </fieldset>
-
                 <div class="form-group">
                   <label for="description">Description</label>
                   <textarea id="exampleTextarea" rows="3">{{business.description}}</textarea>
                 </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <input type="submit" class="btn btn-primary" value="Save changes">
+                    </div>
               </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary">Save changes</button>
             </div>
           </div>
         </div>

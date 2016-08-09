@@ -14,6 +14,8 @@ angular
 				$scope.industries = data
 			})
 		$scope.editBusiness = function() {
-			console.log(editBusiness)
+
+			console.log("WORKING");
+		console.log($scope.business);
 		}
 	})
