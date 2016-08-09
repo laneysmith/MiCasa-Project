@@ -13,4 +13,9 @@ angular
 			.then(function(data) {
 				$scope.industries = data
 			})
+		$scope.editBusiness = function() {
+
+			console.log("WORKING");
+		console.log($scope.business);
+		}
 	})
