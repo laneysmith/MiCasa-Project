@@ -24,7 +24,6 @@ angular
 				controller: "entrepreneursByIdController",
 				templateUrl: "templates/entrepreneur-detail.html"
 			})
-		$locationProvider.html5Mode(true);
 
 
 	});
