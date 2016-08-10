@@ -5,6 +5,7 @@ angular
 		$scope.commentArray = []
 		dataFactory.getById($stateParams.id)
 			.then(function(data) {
+				console.log(data)
 				$scope.commentArray = data[0]
 				$scope.business = data[1][0]
 			})
@@ -13,12 +14,9 @@ angular
 				$scope.industries = data
 			})
 		$scope.editBusiness = function() {
-			console.log('business', $scope.business)
 			dataFactory.updateBusiness($scope.business)
-			// .then(function() {
-				// $state.go('businessById', {
-				// 	id: $stateParams.id
-				// })
-			
+		}
+		$scope.postNote = function() {
+			dataFactory.postNote($stateParams.id, $scope.newNote)
 		}
 	})

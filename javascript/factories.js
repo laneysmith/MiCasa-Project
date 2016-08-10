@@ -7,7 +7,6 @@ angular
 				return $http.get('http://localhost:3000/businesses')
 				.then(function(data) {
 					let results = data.data
-					console.log(results);
 					return $q.resolve(results)
 				})
 			},
@@ -46,6 +45,15 @@ angular
 				.then(function(data) {
 					let results = data.data
 					return $q.resolve(results)
-				})
+				}),
+			postNote: function (id, note) {
+				newNote = {
+					account_id: 1,
+					business_id: id,
+					date: new Date(),
+					notes: note
+				}
+				return $http.post('http://localhost:3000/businesses/' + id + '/addNote', newNote)
+			}
 		}
 	}])
