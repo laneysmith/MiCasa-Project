@@ -15,6 +15,25 @@ angular
 						return $q.resolve(business)
 					})
 			},
+			updateBusiness: function(body) {
+				newData = {
+					'id': body.business_id,
+					'name': body.name,
+					'address1': body.address1,
+					'city': body.city,
+					'state': body.state,
+					'zip': body.zip,
+					'email': body.email,
+					'phone': body.phone,
+					'industry_id': body.industry_id,
+					'date_opened': body.date_opened,
+					'date_closed': body.date_closed,
+					'good_standing': body.good_standing,
+					'description': body.description,
+					'website': body.website
+				}
+				return $http.put('http://localhost:3000/businesses/' + body.business_id, newData)
+			},
 			getAllIndustries: $http.get('http://localhost:3000/businesses/industries')
 				.then(function(data) {
 					let results = data.data
