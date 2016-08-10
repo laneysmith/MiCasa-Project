@@ -19,9 +19,8 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Mi Casa Business Lookup</a>
+          <a class="navbar-brand" ui-sref="home">Mi Casa Business Lookup</a>
         </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
 
@@ -30,8 +29,8 @@
                 <i class="fa fa-search"></i>&nbsp; Search  <span class="caret"></span>
               </a>
               <ul class="dropdown-menu">
-                <li class="active"><a href="#dropdown1" data-toggle="tab">Businesses</a></li>
-                <li><a href="#dropdown2" data-toggle="tab">Entrepreneurs</a></li>
+                <li><a ui-sref="home">Businesses</a></li>
+                <li><a ui-sref="entrepreneurs">Entrepreneurs</a></li>
               </ul>
             </li>
             <!-- <li class="active"><a href="#"><i class="fa fa-search"></i>&nbsp; Search <span class="sr-only">(current)</span></a></li> -->
@@ -59,6 +58,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.0.1/ui-bootstrap-tpls.min.js"></script>
   <script src="./javascript/directives/dirPagination.js"></script>
   <script src="./javascript/app.js"></script>
   <script src="./javascript/factories.js"></script>
