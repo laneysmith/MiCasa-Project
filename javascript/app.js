@@ -25,5 +25,6 @@ angular
 				templateUrl: "templates/entrepreneur-detail.html"
 			})
 
+			$locationProvider.html5Mode(true)
 
 	});

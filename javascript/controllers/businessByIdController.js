@@ -18,5 +18,8 @@ angular
 		}
 		$scope.postNote = function() {
 			dataFactory.postNote($stateParams.id, $scope.newNote)
+			.then(function() {
+				$state.reload()
+			})
 		}
 	})
