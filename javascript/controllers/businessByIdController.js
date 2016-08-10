@@ -13,10 +13,12 @@ angular
 				$scope.industries = data
 			})
 		$scope.editBusiness = function() {
-			dataFactory.updateBusiness($scope.business).then(function() {
-				$state.go('businessById', {
-					id: $stateParams.id
-				})
-			})
+			console.log('business', $scope.business)
+			dataFactory.updateBusiness($scope.business)
+			// .then(function() {
+				// $state.go('businessById', {
+				// 	id: $stateParams.id
+				// })
+			
 		}
 	})

@@ -15,7 +15,7 @@ angular
 				$scope.businessOrder = '-last_name'
 			}
 		}
-		dataFactory.getAll
+		dataFactory.getAll()
 			.then(function(data) {
 				$scope.resultArray = data
 			})
