@@ -9,6 +9,12 @@ angular
 				controller: "businessController",
 				templateUrl: "templates/business.html"
 			})
+			.state('addABusiness', {
+				url: '/businesses/add',
+				controller:"addABusinessController",
+				templateUrl:"templates/addbusiness.html"
+			})
+			
 			.state('businessById', {
 				url: '/businesses/:id',
 				controller: "businessByIdController",
