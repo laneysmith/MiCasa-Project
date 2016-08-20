@@ -19,5 +19,5 @@ Business Edit:
 ![Business Edit screenshot](/mockups/screenshots/Screen Shot 2016-08-20 at 2.28.50 PM.png "Business Edit")
 
 Built with:
-AngularJS
+AngularJS,
 Bootstrap
