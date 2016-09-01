@@ -75,7 +75,9 @@ angular
 
 				var data = [businessData,ownerData,classData]
 
-				return $http.post('http://localhost:3000/businesses/add', data)
+				return $http.post('http://localhost:3000/businesses/add', data).then(function(data) {
+					return data.data.business_id
+				})
 			},
 
 			getAllIndustries: $http.get('http://localhost:3000/businesses/industries')
