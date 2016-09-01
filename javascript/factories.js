@@ -57,14 +57,23 @@ angular
 					'first_name': owner.first_name,
 					'last_name': owner.last_name,
 					'email': owner.email,
-					'phone': owner.phone,
-					'did_graduate': owner.did_graduate,
-					'year': owner.year,
-					'semester': owner.semester,
-					'class_id': owner.class_id
+					'phone': owner.phone
 				}
 
-				var data = [businessData,ownerData]
+				if (owner.did_graduate == "Yes") {
+					owner.did_graduate = true;
+				} else if (owner.did_graduate == "No") {
+					owner.did_graduate = false;
+				}
+
+				classData = {
+					'did_graduate': owner.did_graduate,
+					'year': parseInt(owner.year),
+					'semester': owner.semester,
+					'class_id': parseInt(owner.class_id)
+				}
+
+				var data = [businessData,ownerData,classData]
 
 				return $http.post('http://localhost:3000/businesses/add', data)
 			},
